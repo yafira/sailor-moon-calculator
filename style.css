@@ -144,6 +144,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 footer {
@@ -158,6 +159,7 @@ footer .fa-heart {
   padding: 0 10px 0;
 }
 
+/* media query */
 @media (max-width: 740px) {
 .calculator {
     border: 2px var(--border) solid;
