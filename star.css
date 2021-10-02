@@ -1,7 +1,7 @@
 .stars {
   position: absolute;
-  top: 0px;
-  right:0px;
+  top: 415px;
+  right: -50px;
 }
 
 .star {
@@ -52,13 +52,10 @@
   content: "";
 }
 
-@media (max-width: 1024px) {
-.star {
-    }
-}
-
-@media (max-width: 500px) {
+@media (max-width: 1040px) {
 .star {
   display: none;
   }
 }
+
+
