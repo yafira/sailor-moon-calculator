@@ -1,193 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="star.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="image.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="star.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="image.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Calculator</title>
-  </head>
-  <body>
+</head>
+<body>
     <main class="main">
-      <div class="calculator">
-        <div class="luna">
-          <img src="https://cdn.glitch.com/b648dd3e-2462-493b-9231-66c102a5d7ac%2Fluna.png?v=1633132988661" />
+        <div class="calculator">
+            <div class=luna>
+                <img src="https://cdn.glitch.com/b648dd3e-2462-493b-9231-66c102a5d7ac%2Fluna.png?v=1633132988661">
+            </div>
+            <div class="screen">
+            <div class="screen-last" id="lastOp"></div>
+            <div class="screen-current" id="currOp">0</div>
         </div>
-        <div class="screen">
-          <div class="screen-last" id="lastOp"></div>
-          <div class="screen-current" id="currOp">0</div>
+            <div class="buttons-grid">
+                <button
+                    class="btn btn-pink span-2"
+                    id="clear"
+                    onclick="this.blur();"> clear
+                </button>
+
+                <button
+                    class="btn btn-purple span-2"
+                    id="delete"
+                    onclick="this.blur();"> delete
+                </button>
+
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>7</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>8</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>9</button>
+                <button class="btn" style="height:60px;width:60px"onclick="this.blur();" data-operator>÷</button>
+
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>4</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>5</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>6</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-operator>×</button>
+
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>1</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>2</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>3</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-operator>−</button>
+
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" id="decimal">.</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-number>0</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" id="equals">=</button>
+                <button class="btn" style="height:60px;width:60px" onclick="this.blur();" data-operator>+</button>
+            </div>
+            <div class="star"></div>
+            <div class="star"></div>
         </div>
-        <div class="buttons-grid">
-          <button class="btn btn-pink span-2" id="clear" onclick="this.blur();">
-            clear
-          </button>
-
-          <button
-            class="btn btn-purple span-2"
-            id="delete"
-            onclick="this.blur();"
-          >
-            delete
-          </button>
-
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            7
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            8
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            9
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-operator
-          >
-            ÷
-          </button>
-
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            4
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            5
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            6
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-operator
-          >
-            ×
-          </button>
-
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            1
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            2
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            3
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-operator
-          >
-            −
-          </button>
-
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            id="decimal"
-          >
-            .
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-number
-          >
-            0
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            id="equals"
-          >
-            =
-          </button>
-          <button
-            class="btn"
-            style="height:60px;width:60px"
-            onclick="this.blur();"
-            data-operator
-          >
-            +
-          </button>
-        </div>
-        <div class="star"></div>
-        <div class="star"></div>
-      </div>
     </main>
 
     <p>
-      A calculator, inspired by Sailor Moon's Communicator!
+        A calculator, inspired by Sailor Moon's Communicator!
     </p>
 
-    <footer>
-      Made with <i class="fas fa-heart"></i> by Yafira
-      <br />
-      Copyright © 2021
-    </footer>
-  </body>
+        <footer>
+            Made with <i class="fas fa-heart"></i> by Yafira
+            <br>
+            Copyright © 2021
+        </footer>
+</body>
 </html>
 
 <!-- My Script -->
-<script src="script.js"></script>
+<script src = "script.js"></script>
