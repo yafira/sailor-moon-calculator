@@ -168,11 +168,14 @@ footer .fa-heart {
     padding-top: 200px;
     background-color: var(--calculator);
     position: relative;
-  }
-  .span-2 {
+    }
+.span-2 {
     margin-bottom: 40px;
-  }
-  .stars {
+    }
+p {
+    padding: 220px 50px 10px;
+}
+.star {
     display: none;
-  }
+    }
 }
