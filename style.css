@@ -157,3 +157,20 @@ footer .fa-heart {
   color: rgb(217, 181, 242);
   padding: 0 10px 0;
 }
+
+@media (max-width: 740px) {
+.calculator {
+    border: 2px var(--border) solid;
+    border-radius: 15px;
+    padding: 10px;
+    padding-top: 200px;
+    background-color: var(--calculator);
+    position: relative;
+  }
+  .span-2 {
+    margin-bottom: 40px;
+  }
+  .stars {
+    display: none;
+  }
+}

@@ -52,10 +52,9 @@
   content: "";
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 740px) {
 .star {
   display: none;
   }
 }
-
 
