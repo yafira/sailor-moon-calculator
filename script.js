@@ -1,27 +1,128 @@
-/*
-This is your site JavaScript code - you can add interactivity and carry out processing
-- Initially the JS writes a message to the console, and moves a button you can add from the README
-*/
+let firstNum = "";
+let secondNum = "";
+let currentOperation = null;
+let reset = false;
 
-// Print a message in the browser's dev tools console each time the page loads
-// Use your menus or right-click / control-click and choose "Inspect" > "Console"
-console.log("Hello 🌎");
+// elements and selectors
+const numButtons = document.querySelectorAll("[data-number]");
+const operatorButtons = document.querySelectorAll("[data-operator]");
+const equalsButton = document.getElementById("equals");
+const clearButton = document.getElementById("clear");
+const deleteButton = document.getElementById("delete");
+const decimalButton = document.getElementById("decimal");
+const lastOperation = document.getElementById("lastOp");
+const operationOnScreen = document.getElementById("currOp");
 
-/* 
-Make the "Click me!" button move when the visitor clicks it:
-- First add the button to the page by following the "Next steps" in the README
-*/
-const btn = document.querySelector("button"); // Get the button from the page
-// Detect clicks on the button
-if (btn) {
-  btn.onclick = function() {
-    // The JS works in conjunction with the 'dipped' code in style.css
-    btn.classList.toggle("dipped");
-  };
+// event listeners
+equalsButton.addEventListener("click", evaluate);
+clearButton.addEventListener("click", clear);
+deleteButton.addEventListener("click", deleteNum);
+decimalButton.addEventListener("click", appendDecimal);
+
+numButtons.forEach(button =>
+  button.addEventListener("click", () => appendNum(button.textContent))
+);
+
+operatorButtons.forEach(button =>
+  button.addEventListener("click", () => setOperation(button.textContent))
+);
+
+function appendNum(number) {
+  if (operationOnScreen.textContent === "0" || reset) resetCalc();
+  operationOnScreen.textContent += number;
 }
 
-// This is a single line JS comment
-/*
-This is a comment that can span multiple lines 
-- use comments to make your own notes!
-*/
+// reset calculator
+function resetCalc() {
+  operationOnScreen.textContent = "";
+  reset = false;
+}
+
+// clear calculator
+function clear() {
+  operationOnScreen.textContent = "0";
+  lastOperation.textContent = "";
+  firstNum = "";
+  secondNum = "";
+  currentOperation = null;
+}
+
+// decimal functionality
+function appendDecimal() {
+  if (reset) resetCalc();
+  if (operationOnScreen.textContent === "") operationOnScreen.textContent = ".";
+  if (operationOnScreen.textContent.includes(".")) return;
+  operationOnScreen.textContent += ".";
+}
+
+// delete number
+function deleteNum() {
+  operationOnScreen.textContent = operationOnScreen.textContent
+    .toString()
+    .slice(0, -1);
+}
+
+// operation functionality
+function setOperation(operator) {
+  if (currentOperation !== null) evaluate();
+  firstNum = operationOnScreen.textContent;
+  currentOperation = operator;
+  lastOperation.textContent = `${firstNum} ${currentOperation}`;
+  reset = true;
+}
+
+// evaluate operation
+function evaluate() {
+  if (currentOperation === null || reset) return;
+  if (currentOperation === "÷" && operationOnScreen.textContent === "0") {
+    alert("You can't divide by 0.");
+    return;
+  }
+  secondNum = operationOnScreen.textContent;
+  operationOnScreen.textContent = roundResult(
+    operate(currentOperation, firstNum, secondNum)
+  );
+  lastOperation.textContent = `${firstNum} ${currentOperation} ${secondNum} =`;
+  currentOperation = null;
+}
+
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000;
+}
+
+// calculations, + - x /
+function add(a, b) {
+  return a + b;
+}
+
+function substract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  return a / b;
+}
+
+// operations, executes cases based on the user input
+function operate(operator, a, b) {
+  a = Number(a);
+  b = Number(b);
+
+  switch (operator) {
+    case "+":
+      return add(a, b);
+    case "−":
+      return substract(a, b);
+    case "×":
+      return multiply(a, b);
+    case "÷":
+      if (b === 0) return null;
+      else return divide(a, b);
+    default:
+      return null;
+  }
+}
