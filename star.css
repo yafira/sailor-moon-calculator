@@ -1,13 +1,13 @@
+.stars {
+  position: absolute;
+  top: 0px;
+  right:0px;
+}
+
 .star {
   margin: 20px;
-  top: -350px;
-  left: 600px;
-  bottom: 250px;
-  position: relative;
   display: block;
   color: rgb(247, 242, 176);
-  width: 0px;
-  height: 0px;
   border-right: 100px solid transparent;
   border-bottom: 70px solid rgb(247, 242, 176);
   border-left: 100px solid transparent;
@@ -54,11 +54,11 @@
 
 @media (max-width: 1024px) {
 .star {
-  margin: 20px;
-  top: -350px;
-  left: 500px;
-  bottom: 250px;
-  position: relative;
-  display: block;
     }
+}
+
+@media (max-width: 500px) {
+.star {
+  display: none;
+  }
 }
