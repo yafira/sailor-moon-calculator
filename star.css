@@ -51,3 +51,14 @@
   -o-transform: rotate(-70deg);
   content: "";
 }
+
+@media (max-width: 1024px) {
+.star {
+  margin: 20px;
+  top: -350px;
+  left: 500px;
+  bottom: 250px;
+  position: relative;
+  display: block;
+    }
+}
