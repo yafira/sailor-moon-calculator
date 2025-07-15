@@ -1,4 +1,4 @@
-## Calculator
+## Sailor Moon Inspired Calculator
 
 ### Built an on-screen calculator using <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>
 
