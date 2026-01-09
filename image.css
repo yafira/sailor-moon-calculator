@@ -1,11 +1,10 @@
 img {
   height: 175px;
   width: 200px;
-  padding-left: 10px;
+  padding-left: 0px;
   align-items: center;
-  border: 2px #222 solid;
+  border: 10px rgb(66, 229, 232) solid;
   border-radius: 200px;
-  background-color: rgb(66, 229, 232);
   margin: 0px;
 }
 
